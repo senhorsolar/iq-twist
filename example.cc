@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <wordexp.h>
 
-#include "src/iq_twist.h"
+#include "iq_twist.h"
 
 using namespace std;
 
