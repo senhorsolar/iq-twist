@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <wordexp.h>
 
-#include "../dlx/dlx.h"
+#include "dlx/dlx.h"
 
 using namespace std;
 
