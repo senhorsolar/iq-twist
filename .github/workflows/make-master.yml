@@ -9,6 +9,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - uses: mymindstorm/setup-emsdk@v7
+      - name: Verify
+        run: emcc -v
       - name: Run Makefile
         run: make wasm
       
