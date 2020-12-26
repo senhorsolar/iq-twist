@@ -4,8 +4,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: repeat(9, 50px);
-    grid-template-rows: repeat(3, 30px) repeat(4, 1fr);
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 0.7fr) repeat(4, 1fr);
 }
 
 .game-board {
@@ -32,7 +32,7 @@
 
 .peg {
     position: absolute;
-    left: 20px;
+    left: 40%;
     top: 0px;
     /* grid-column-start: 2; */
     /* grid-column-end: 3; */
@@ -100,20 +100,63 @@
     grid-row-end: 2;
 }
 
-.peglocs {
+.pegcmd {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    width: 50%;
+}
+
+#pegcmdred {
     grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#pegcmdblue1 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#pegcmdblue2 {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+
+#pegcmdgreen1 {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#pegcmdgreen2 {
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#pegcmdyellow1 {
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#pegcmdyellow2 {
+    grid-column-start: 8;
     grid-column-end: 9;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 
-.pegcmd {
-    position: relative;
-    left: 20px;
-    top: -15px;
-    width: 30px;
-    padding: 5.5px;
-}
 
 /* .peg { */
 /*     position: absolute; */
@@ -124,28 +167,28 @@
 
 .solving {
     position: absolute;
-    top: 50px;
-    left: 40%;
+    top: 90%;
+    left: 30%;
     grid-column-start: 1;
     grid-column-end: 9;
-    grid-row-start: 7;
-    grid-row-end: 8;
+    grid-row-start: 8;
+    grid-row-end: 9;
 }
 
 #solutionIdx {
-    width: 30px;
+    width: 15%;
 }
 
 .solve {
     position: relative;
     cursor: pointer;
-    left: 10px;
+    left: 5%;
 }
 
 .rowlabel {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 20%;
+    left: 20%;
 }
 
 #rowA {
@@ -178,7 +221,7 @@
 
 .collabel {
     position: absolute;
-    left: 20px;
+    left: 30%;
 }
 
 #col1 {

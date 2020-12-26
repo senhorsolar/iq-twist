@@ -6,7 +6,7 @@
     <link href="style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <div class="grid">
+    <div id="gridd" class="grid">
       <div class="game-board">
 	<canvas id="board"></canvas>
       </div>
@@ -61,7 +61,7 @@
 
       const COLS = 8;
       const ROWS = 4;
-      const BLOCK_SIZE = 50;
+      const BLOCK_SIZE = document.getElementById('gridd').offsetWidth / 9;
       
       // Init Board
       const canvas = document.getElementById('board');
