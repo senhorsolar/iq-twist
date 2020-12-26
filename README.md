@@ -8,10 +8,12 @@ This repo contains a solver for the IQ twist puzzle game [1]. It uses an impleme
 
 ## Usage
 
-The following command generates the appropriate webassembly bindings and runs a local server:
+The following command generates the appropriate webassembly bindings and runs a local web server:
 ```
 make run
 ```
+
+Open [localhost:8000](localhost:8000) to interact with solver.
 
 See live demo (TODO).
 
