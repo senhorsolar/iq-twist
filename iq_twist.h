@@ -1,12 +1,18 @@
+// iq_tiwst.h
+#pragma once
+
 #include <complex>
+#include <iostream>
 #include <map>
 #include <set>
 #include <string>
+#include <sstream>
 #include <vector>
 
+#include <assert.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <wordexp.h>
+//#include <wordexp.h>
 
 #include "dlx/dlx.h"
 
@@ -38,41 +44,60 @@ public:
 					{'g', 2}
 		};
 
+		// getopt expects the argv structure
 		cmd = cmd.insert(0, "dummy_cmd ");
 
-		wordexp_t p;
-		::wordexp(cmd.c_str(), &p, WRDE_NOCMD);
+		/*
+		  A little hack to get argc and argv from a string, 
+		  since wordexp doesn't work with webassembly
+		 */
+		//wordexp_t p;
+		//wordexp(cmd.c_str(), &p, WRDE_NOCMD);
+		vector<string> v;
+		istringstream iss(cmd);
+		for (string s; iss >> s; )
+			v.push_back(s);
+		
+		std::vector<char*> tmp;
+		for (int i = 0; i < v.size(); i++) {
+			tmp.push_back(&v.at(i)[0]);
+		}
 
+		char** argv = &tmp[0];
+		
 		char c;
-		while ((c = getopt(p.we_wordc, p.we_wordv, "r:b:y:g:")) != -1) {
+		while ((c = getopt(v.size(), argv, "r:b:y:g:")) != -1) {
 			
 			switch(c) {
 			case 'r':
 			case 'b':
 			case 'y':
 			case 'g':
-				// TODO - come uop with error msg
-				if (strlen(optarg) != 2) {}
-					
-				
+				// TODO - come up with error msg
+				assert(strlen(optarg) == 2);
+									
 				int coord_1 = char_to_int(optarg[0]);
 				int coord_2 = char_to_int(optarg[1]);
 				
 				// TODO - come up with error msg
-				if ((coord_1 < 0) or (coord_2 < 0)) {}
-				if ((coord_1 >= 4) or (coord_2 >= 8)) {}
+				assert((coord_1 >= 0) and (coord_2 >= 0));
+				assert((coord_1 < 4) and (coord_2 < 8));
 				
 				coord po = {coord_1, coord_2};
 				
 				// TODO - come up with error msg
-				if (peg_placements.count(po) or !(possible_placements[c]--)) {}
-				else
-					peg_placements.insert(po);
+				assert(peg_placements.count(po) == 0);
+				peg_placements.insert(po);
 				
+				assert(possible_placements[c]--);
+			        
 				pegs.push_back({c, po});
 				break;
 			}
 		}
+
+		// Reset getopt for future calls to it
+		optind = 0;
 
 		return pegs;
 	}
@@ -289,10 +314,20 @@ public:
 		return color;
 	}
 
-protected:
+	
+	string get_solution(size_t idx) {
+		string res;
+		if (idx < solutions.size())
+			res = solutions[idx];
+		return res;
+	}
+	
+private:
+
+	vector<string> solutions;
 	
 	void display_solution(int q) {
-		char board[32];
+		char board[33];
 		for (int k = 0; k < q; k++) {
 			vector<coord> coords;
 			char color;
@@ -319,13 +354,14 @@ protected:
 				board[r*8 + c] = color;
 			}
 		}
-
-		for (int i = 0; i < 32; i++)
-			cout << board[i];
-		cout << '\n';
+		
+		board[32] = '\0';
+		solutions.push_back(string(board));
+		// for (int i = 0; i < 32; i++)
+		//  	cout << solutions.back()[i];
+		// cout << '\n';
 	}
 	
-private:
         static const vector<piece> pieces;
 	static const map<char, pair<int, int> > color_to_idxs;
 	static const vector<vector<int> > iq_twist_board;
