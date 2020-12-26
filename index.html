@@ -14,7 +14,7 @@
 	<canvas id="pboard"></canvas>
       </div>
       <div class = "pegs">
-	<canvas id="redpeg" class="peg"></canvas>
+	<canvas id="redpeg" class="peg" draggable="true"></canvas>
 	<canvas id="bluepeg1" class="peg"></canvas>
 	<canvas id="bluepeg2" class="peg"></canvas>
 	<canvas id="greenpeg1" class="peg"></canvas>
@@ -22,7 +22,7 @@
 	<canvas id="yellowpeg1" class="peg"></canvas>
 	<canvas id="yellowpeg2" class="peg"></canvas>
       </div>
-      <div class = "peglocs">
+      
 	<input id="pegcmdred" type="text" class="pegcmd">
 	<input id="pegcmdblue1" type="text" class="pegcmd">
 	<input id="pegcmdblue2" type="text" class="pegcmd">
@@ -30,7 +30,7 @@
 	<input id="pegcmdgreen2" type="text" class="pegcmd">
 	<input id="pegcmdyellow1" type="text" class="pegcmd">
 	<input id="pegcmdyellow2" type="text" class="pegcmd">
-      </div>
+      
       
       <div>
 	<button onclick="placePegs()" class="place-pegs">Place Pegs</button>
@@ -61,7 +61,8 @@
 
       const COLS = 8;
       const ROWS = 4;
-      const BLOCK_SIZE = document.getElementById('gridd').offsetWidth / 9;
+      //const BLOCK_SIZE = document.getElementById('gridd').offsetWidth / 9;
+      const BLOCK_SIZE = 40;
       
       // Init Board
       const canvas = document.getElementById('board');

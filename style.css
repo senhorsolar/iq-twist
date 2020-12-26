@@ -1,11 +1,12 @@
 .grid {
     position: fixed;
     left: 50%;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(3, 0.7fr) repeat(4, 1fr);
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(3, 20px) repeat(4, 40px);
+    /* width: 60%; */
 }
 
 .game-board {
@@ -32,8 +33,8 @@
 
 .peg {
     position: absolute;
-    left: 40%;
-    top: 0px;
+    left: 20px;
+    top: -5px;
     /* grid-column-start: 2; */
     /* grid-column-end: 3; */
     /* grid-row-start: 2; */
@@ -93,18 +94,18 @@
 .place-pegs {
     position: absolute;
     top: 0px;
-    left: 75px;
-    grid-column-start: 8;
-    grid-column-end: 9;
+    left: 30px;
+    grid-column-start: 9;
+    grid-column-end: 10;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 
 .pegcmd {
-    position: absolute;
-    left: 50%;
-    top: 0px;
-    width: 50%;
+    position: relative;
+    left: 25px;
+    top: -5px;
+    width: 30px;
 }
 
 #pegcmdred {
@@ -167,8 +168,8 @@
 
 .solving {
     position: absolute;
-    top: 90%;
-    left: 30%;
+    top: 10px;
+    left: 100px;
     grid-column-start: 1;
     grid-column-end: 9;
     grid-row-start: 8;
@@ -176,19 +177,19 @@
 }
 
 #solutionIdx {
-    width: 15%;
+    width: 40px;
 }
 
 .solve {
     position: relative;
     cursor: pointer;
-    left: 5%;
+    left: 10px;
 }
 
 .rowlabel {
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 20px;
+    left: 20px;
 }
 
 #rowA {
@@ -221,7 +222,8 @@
 
 .collabel {
     position: absolute;
-    left: 30%;
+    left: 20px;
+    top: -1px;
 }
 
 #col1 {
