@@ -1,3 +1,5 @@
+// Beware atrocious javascript
+
 const COLS = 8;
 const ROWS = 4;
 //const BLOCK_SIZE = document.getElementById('gridd').offsetWidth / 9;
@@ -11,6 +13,7 @@ ctx.canvas.width = COLS * BLOCK_SIZE;
 ctx.canvas.height = ROWS * BLOCK_SIZE;
 ctx.scale(BLOCK_SIZE, BLOCK_SIZE)
 
+// Same board, but for pegs
 const pcanvas = document.getElementById('pboard');
 const pctx = pcanvas.getContext('2d');
 
@@ -145,10 +148,54 @@ onRuntimeInitialized: function placePegs() {
     console.log(`-- nsolutions: ${nsolutions}, time: ${(Date.now() - start) / 1000}s`)
 }
 
+function prev() {
+    if (iqtwist != null) {
+	let solutionIdx = parseInt(document.getElementById("solutionIdx").value);
+
+	if (solutionIdx > 1) {
+	    document.getElementById("solutionIdx").value = solutionIdx - 1;
+	    solve();
+	}
+    }
+}
+
+function next() {
+    if (iqtwist != null) {
+	let solutionIdx = parseInt(document.getElementById("solutionIdx").value);
+
+	if (solutionIdx < iqtwist.solution_count()) {
+	    document.getElementById("solutionIdx").value = solutionIdx + 1;
+	    solve();
+	}
+    }
+}
+
+var added_buttons = false;
+
 onRuntimeInitialized: function solve() {
     
     if (iqtwist == null) {
 	placePegs()
+    }
+
+    if (added_buttons == false) {
+
+	var solvingdiv = document.getElementById("solvingdiv");
+
+	var nextButton = document.createElement("button");
+	var prevButton = document.createElement("button");
+	
+	nextButton.onclick = next;
+	nextButton.innerText = "Next";
+	prevButton.onclick = prev;
+	prevButton.innerText = "Prev";
+
+	
+	solvingdiv.appendChild(prevButton);
+	solvingdiv.appendChild(nextButton);
+		
+	added_buttons = true;
+	console.log("Placing buttons");
     }
     
     let solutionIdx = parseInt(document.getElementById("solutionIdx").value);

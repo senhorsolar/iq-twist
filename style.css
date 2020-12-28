@@ -5,9 +5,9 @@
 }
 
 .instructions {
-    position: fixed;
+    position: absolute;
     text-align: center;
-    bottom: 170px;
+    bottom: 130px;
     left: 50%;
    /* position: fixed; */
    /* left: 52%; */
@@ -16,9 +16,6 @@
    width: 360px;
 }
 
-#instructions {
-    text-align: left;
-}
 
 .grid {
     position: fixed;
