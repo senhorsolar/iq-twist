@@ -5,7 +5,7 @@ This repo contains a solver for the IQ twist puzzle game [1]. It uses an impleme
 
 1. https://www.smartgames.eu/uk/one-player-games/iq-twist
 
-## Prerequisites
+## Dependencies
 
 [Emscripten](https://emscripten.org/docs/getting_started/downloads.html) and python3.
 
