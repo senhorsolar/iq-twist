@@ -12,5 +12,5 @@ clean:
 	rm -f *.out bindings.js *.wasm example
 
 example:
-	g++ --std=c++17 example.cc -o example
+	g++ --std=c++2a -O2 example.cc -o example
 	./example

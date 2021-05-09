@@ -101,7 +101,8 @@ public:
 
 		return pegs;
 	}
-	
+
+	static inline
 	piece rotate_piece(piece p) {
 		int nrows = p.size();
 		int ncols = p[0].size();
@@ -119,6 +120,7 @@ public:
 		return rp;
 	}
 
+	static inline
 	piece mirror_piece(piece p) {
 		int nrows = p.size();
 		int ncols = p[0].size();
@@ -136,6 +138,7 @@ public:
 		return mp;
 	}
 
+	static inline
 	string piece_to_str(piece p) {
 		ostringstream oss;
 		
@@ -196,6 +199,7 @@ public:
 		return unique_pieces;
 	}
 
+	static inline
 	int real_sum(piece p) {
 		int sum = 0;
 		
@@ -294,7 +298,8 @@ public:
 		
 		return mat;
 	}
-	
+
+	static inline
 	int char_to_int(char c) {
 		return c - '0';
 	}
