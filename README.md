@@ -18,7 +18,7 @@ make run
 
 Open [localhost:8000](localhost:8000) to interact with solver.
 
-See [live demo](https://logismos.github.io/iqtwist/).
+See [live demo](https://senhorsolar.github.io/iqtwist/).
 
 ## Notes
 When cloning, don't forget to add the recursive option to capture the submodule:
