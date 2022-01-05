@@ -14,6 +14,8 @@ EMSCRIPTEN_BINDINGS(iq_twist) {
 	//  	;
     class_<IqTwist::IqTwistSolver>("IqTwist")
 	.constructor<std::string>()
+	.function("solve", &IqTwist::IqTwistSolver::Solve)
+	.function("solution_count", &IqTwist::IqTwistSolver::SolutionCount)
 	.function("get_solution", &IqTwist::IqTwistSolver::GetSolution)
 	;
 }

@@ -139,7 +139,7 @@ onRuntimeInitialized: function placePegs() {
     }
     
     iqtwist = new Module.IqTwist(pegcmd);
-    var nsolutions = iqtwist.search();
+    var nsolutions = iqtwist.solve();
     
     document.getElementById("nsolutions").textContent = nsolutions;
     document.getElementById("solutionIdx").value = (nsolutions > 0) ? 1 : 0;
