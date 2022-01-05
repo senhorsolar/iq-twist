@@ -1,6 +1,7 @@
 // iq_tiwst.h
 #pragma once
 
+#include <cstring>
 #include <complex>
 #include <iostream>
 #include <map>
